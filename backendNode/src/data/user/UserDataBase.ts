@@ -1,4 +1,4 @@
-import { UserInsert } from "../../model/user";
+import { User, UserInsert } from "../../model/user";
 import { BaseDataBase } from "../baseDataBase/BaseDataBase";
 
 export class UserDataBase extends BaseDataBase {
@@ -17,7 +17,24 @@ export class UserDataBase extends BaseDataBase {
             }
         }
     };
-
+    
+    getUserByEmail = async(email:string) => {
+        try {
+            const result:string = await this.getConnection()
+            .select("*")
+            .where({email})
+            .from(UserDataBase.TABLE_NAME)
+            return User.toUserModel(result[0])
+        } catch (error) {
+            if(error instanceof Error) {
+                if(error instanceof Error) {
+                    throw new Error(error.message)
+                }else{
+                    throw new Error("Unexpected database Error!")
+                }
+            }
+        }
+    }
     selectAllUsers = async () => {
         try{
             const result:UserInsert[] = await this.getConnection()
