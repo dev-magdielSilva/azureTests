@@ -1,5 +1,5 @@
-import knex, { Knex} from 'knex'
-import dotenv from 'dotenv'
+import knex, { Knex} from 'knex';
+import dotenv from 'dotenv';
 
 dotenv.config()
 
@@ -9,7 +9,7 @@ export class BaseDataBase {
    protected getConnection = (): Knex =>{
       if(!BaseDataBase.connection){
          BaseDataBase.connection = knex({
-            client: 'mysql',
+            client: "mysql",
                connection: {
                host: process.env.DB_HOST,
                user: process.env.DB_USER,

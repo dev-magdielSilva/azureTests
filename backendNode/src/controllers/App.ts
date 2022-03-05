@@ -12,7 +12,7 @@ export const app: Express = express();
 app.use(express.json());
 app.use(cors());
 
-const server = app.listen(process.env.PORT || 3003, () => {
+const server = app.listen(process.env.DB_PORT || 3003, () => {
     if (server) {
         const addres = server.address() as AddressInfo;
         console.log(`Server running on port http:localhost:${addres.port}`);

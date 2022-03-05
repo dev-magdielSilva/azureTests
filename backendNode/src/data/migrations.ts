@@ -10,7 +10,7 @@ class Migrations extends BaseDataBase {
                     email VARCHAR(255) NOT NULL,
                     nome VARCHAR(255) NOT NULL,
                     password VARCHAR(255) NOT NULL,
-                    profile ENUM("ADMIN", "NORMAL")
+                    role ENUM("ADMIN", "NORMAL")
                 )
                 `
             );
