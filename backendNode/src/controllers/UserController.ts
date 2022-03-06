@@ -5,7 +5,6 @@ export class UserController {
     signUpUser = async (req:Request, res:Response) => {
         try {
             const {email, name, password, role} = req.body;
-
             const result = await new UserBusiness().signUpUser({
                 email,
                 name,
