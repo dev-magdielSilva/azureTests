@@ -25,8 +25,7 @@ export class UserBusiness {
         id,
         role: user.role,
       });
-      return accessToken
-      
+      return accessToken;
     } catch (error) {
       if (error instanceof Error) {
         if (error instanceof Error) {

@@ -20,11 +20,12 @@ export class UserDataBase extends BaseDataBase {
     
     getUserByEmail = async(email:string) => {
         try {
-            const result:string = await this.getConnection()
+            const result = await this.getConnection()
             .select("*")
             .where({email})
             .from(UserDataBase.TABLE_NAME)
             return User.toUserModel(result[0])
+            
         } catch (error) {
             if(error instanceof Error) {
                 if(error instanceof Error) {
